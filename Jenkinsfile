@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
 		echo "Build"
-                sh 'docker build . -f /var/jenkins_home/docker-build.dockerfile -t build'
+                sh 'docker build . -f /var/jenkins_home/docker-build.dockerfile -t builder'
             }
         }
 	stage('Test'){
