@@ -1,5 +1,5 @@
 FROM build:latest
 
-WORKDIR build
+WORKDIR  testing-node-apps
 
 RUN npm run test
