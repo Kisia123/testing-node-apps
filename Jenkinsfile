@@ -11,7 +11,8 @@ pipeline {
 	stage('Test'){
 		steps{
 			echo 'Test'
-			sh 'docker build . -f /var/jenkins_home/docker-test.dockerfile -t test'
+			sh 'docker build . -f /var/jenkins_home/docker-test.dockerfile -t tester'
+			sh 'docker run tester'
 			echo 'done'
 		}
 	}
