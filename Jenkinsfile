@@ -20,7 +20,7 @@ pipeline {
 	stage('Deploy'){
 		steps{
 			echo 'Deploy'
-			sh 'docker build .  -f /var/jenkins_home/docker-deploy.dockerfile -t deployer'
+			sh 'docker build . -f /var/jenkins_home/docker-deploy.dockerfile -t deployer'
 // 			def doc_containers = sh(returnStdout: true, script: 'docker container ps -aq').replaceAll("\n", " ") 
 // 			if (doc_containers) {
        			sh 'docker stop $(docker ps -aq)'
@@ -41,9 +41,7 @@ pipeline {
 		steps{
 			echo 'publish'
 			sh 'npm install -g npm@latest'
-			sh 'npm config set registry http://registry.npmjs.org/'
-			sh 'npm --version'
-			sh 'npm install --location=global https://tls-test.npmjs.com/tls-test-1.0.0.tgz'
+			sh 'npm version ${BUILD_NUMBER}'
 			load '/var/jenkins_home/token'
 			withEnv(["TOKEN=${NPM_TOKEN}"]) {
 				
