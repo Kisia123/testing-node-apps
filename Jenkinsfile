@@ -25,7 +25,7 @@ pipeline {
 // 			if (doc_containers) {
        			sh 'docker stop $(docker ps -aq)'
 //     			}
-			sh 'docker run docker run -d -p 8081:8080 deployer'
+			sh 'docker run -d -p 8081:8080 deployer'
 			echo 'deploy is done'
 		}
 
