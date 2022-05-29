@@ -1,4 +1,4 @@
-FROM build:latest
+FROM builder:latest
 
 WORKDIR  testing-node-apps
 
