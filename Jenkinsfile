@@ -6,6 +6,7 @@ pipeline {
             steps {
 		echo "Build"
                 sh 'docker build . -f /var/jenkins_home/docker-build.dockerfile -t builder'
+		echo 'building is over'
             }
         }
 	stage('Test'){
@@ -13,21 +14,22 @@ pipeline {
 			echo 'Test'
 			sh 'docker build . -f /var/jenkins_home/docker-test.dockerfile -t tester'
 			sh 'docker run tester'
-			echo 'done'
+			echo 'done testing'
 		}
 	}
 	stage('Deploy'){
 		steps{
 			echo 'Deploy'
-// 				<!-- sh 'docker build . -f docker-deploy.dockerfile -t Deploy'
-// 				sh 'docker stop $(docker ps -a -q)'
-// 				sh 'docker run  -d -p 3000:80 Deploy -->
+			sh 'docker build .  -f /var/jenkins_home/docker-deploy.dockerfile -t deployer'
+			sh 'docker run builder'
+			echo 'deploy is done'
 		}
 
 	}
 	stage('Publish'){
 		steps{
 			echo 'publish'
+			echo 'finally' 
 		}
 	}
 }
