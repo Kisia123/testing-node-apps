@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The material for learning Testing Node.js Apps",
   "keywords": [],
-  "homepage": "https://github.com/kentcdodds/testing-node-apps",
+  "homepage": "http://github.com/kentcdodds/testing-node-apps",
   "license": "GPL-3.0-only",
   "engines": {
     "node": ">=12",
