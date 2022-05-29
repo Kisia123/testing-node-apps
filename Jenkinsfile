@@ -1,7 +1,7 @@
 
 pipeline {
 	parameters{
-		string(name: 'VERSION', defaultValue: '1.0', description: 'first two numbers')
+		string(name: 'VERSION', defaultValue: '1.0.', description: 'first two numbers')
 		booleanParam(name: 'PROMOTE', defaultValue: false, description: 'should be published?')
 	
 	}
@@ -55,7 +55,7 @@ pipeline {
 				sh 'git config user.email "nikola.prochalska@gmail.com"'
 				sh 'git config user.name "Kisia123"'
 
-				sh 'npm version ${params.VERSION}.${BUILD_NUMBER}'
+				sh 'npm version ${params.VERSION}${BUILD_NUMBER}'
 				load '/var/jenkins_home/token'
 				withEnv(["TOKEN=${NPM_TOKEN}"]) {
 
