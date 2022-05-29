@@ -31,6 +31,13 @@ pipeline {
 
 	}
 	stage('Publish'){
+		agent{			
+        		docker {
+            			image 'builder:latest' 
+            			args '-u root' 
+     			   }
+		}
+		
 		steps{
 			echo 'publish'
 			load '/var/jenkins_home/token'
