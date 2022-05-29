@@ -21,7 +21,7 @@ pipeline {
 		steps{
 			echo 'Deploy'
 			sh 'docker build .  -f /var/jenkins_home/docker-deploy.dockerfile -t deployer'
-			sh 'docker run builder'
+			sh 'docker run deployer'
 			echo 'deploy is done'
 		}
 
