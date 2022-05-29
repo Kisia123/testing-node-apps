@@ -48,7 +48,7 @@ pipeline {
 			withEnv(["TOKEN=${NPM_TOKEN}"]) {
 				
                     		sh 'echo "//registry.npmjs.org/:_authToken=${TOKEN}" >> ~/.npmrc'
-                  		sh 'npm publish' 
+                  		sh 'npm publish --access public' 
 
                		}
 			echo 'finally' 
