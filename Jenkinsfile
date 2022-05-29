@@ -2,7 +2,7 @@
 pipeline {
 	parameters{
 		string(name: 'VERSION', defaultValue: '1.0', description: 'first two numbers')
-		booleanParam(name: 'PROMOTE', defaultValue: false, description: 'should be published?'
+		booleanParam(name: 'PROMOTE', defaultValue: false, description: 'should be published?')
 	
 	}
 	agent any
