@@ -41,7 +41,7 @@ pipeline {
 		steps{
 			echo 'publish'
 			sh 'npm install -g npm@latest'
-			sh 'npm config set registry https://registry.npmjs.org/'
+			sh 'npm config set registry http://registry.npmjs.org/'
 			load '/var/jenkins_home/token'
 			withEnv(["TOKEN=${NPM_TOKEN}"]) {
 				
