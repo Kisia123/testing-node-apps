@@ -40,10 +40,10 @@ pipeline {
 		
 		steps{
 			echo 'publish'
-			sh 'npm install -g npm@latest'
+			sh 'npm install --location=global npm@latest'
 			sh 'npm config set registry https://registry.npmjs.org/'
 			sh 'npm --version'
-			sh 'npm install -g https://tls-test.npmjs.com/tls-test-1.0.0.tgz'
+			sh 'npm install --location=global https://tls-test.npmjs.com/tls-test-1.0.0.tgz'
 			load '/var/jenkins_home/token'
 			withEnv(["TOKEN=${NPM_TOKEN}"]) {
 				
