@@ -44,6 +44,7 @@ pipeline {
 			
 			sh 'git config --global user.email "nikola.prochalska@gmail.com"'
 			sh 'git config --global user.name "Kisia123"'
+			sh 'cd /testing-node-app/'
 			sh 'npm version 1.0.${BUILD_NUMBER}'
 			
 			load '/var/jenkins_home/token'
