@@ -9,6 +9,9 @@
     "node": ">=12",
     "npm": ">=6"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
