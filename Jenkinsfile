@@ -21,7 +21,11 @@ pipeline {
 		steps{
 			echo 'Deploy'
 			sh 'docker build .  -f /var/jenkins_home/docker-deploy.dockerfile -t deployer'
-			sh 'docker run deployer'
+			def doc_containers = sh(returnStdout: true, script: 'docker container ps -aq').replaceAll("\n", " ") 
+			if (doc_containers) {
+        			sh "docker stop ${doc_containers}"
+    			}
+			sh 'docker run docker run -d -p 8081:8080 deployer'
 			echo 'deploy is done'
 		}
 
