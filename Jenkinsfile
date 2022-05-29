@@ -33,8 +33,11 @@ pipeline {
 	stage('Publish'){
 		steps{
 			echo 'publish'
+			load '/var/jenkins_home/token'
+			sh 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc'
+                   	sh 'npm publish' 
 			echo 'finally' 
 		}
 	}
-}
+    }
 }
