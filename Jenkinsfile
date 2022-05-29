@@ -41,7 +41,7 @@ pipeline {
 		steps{
 			echo 'publish'
 			sh 'npm install -g npm@latest'
-			sh 'npm version ${BUILD_NUMBER}'
+			sh 'npm version 1.0.${BUILD_NUMBER}'
 			load '/var/jenkins_home/token'
 			withEnv(["TOKEN=${NPM_TOKEN}"]) {
 				
